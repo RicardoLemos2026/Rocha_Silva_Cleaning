@@ -27,6 +27,7 @@
   .header-right .year{font-family:'Bebas Neue',cursive;font-size:50px;line-height:1;color:var(--pink);letter-spacing:2px;}
   .header-right .analyst{font-size:13px;color:var(--muted);margin-top:2px;}
   .analyst strong{color:var(--text);font-weight:700;}
+  .source-note{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:4px;}
   .legend-bar{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:32px;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:12px;}
   .legend-item{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;}
   .legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
@@ -72,8 +73,8 @@
   .realizado-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:36px;}
   .real-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;}
   .real-card.parcial{border-color:rgba(255,18,87,0.3);background:rgba(255,18,87,0.02);}
+  .real-card.abaixo{border-color:rgba(192,57,43,0.25);}
   .real-month{font-family:'Bebas Neue',cursive;font-size:17px;letter-spacing:2px;color:var(--text);}
-  .real-parcial{font-size:10px;color:var(--muted);font-style:italic;}
   .real-amount{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--pink);}
   .real-growth{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:20px;}
   .growth-pos{background:rgba(30,125,70,0.12);color:var(--master);}
@@ -84,8 +85,9 @@
   .meta-line{display:flex;justify-content:space-between;align-items:center;}
   .meta-line-label{font-size:10px;color:var(--muted);}
   .meta-line-val{font-family:'DM Mono',monospace;font-size:10px;}
-  .fechado-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:20px;background:var(--fechado-bg);color:var(--fechado);width:fit-content;}
-  .parcial-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:20px;background:rgba(255,18,87,0.10);color:var(--pink);width:fit-content;}
+  .status-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:20px;width:fit-content;}
+  .status-fechado{background:var(--fechado-bg);color:var(--fechado);}
+  .status-parcial{background:rgba(255,18,87,0.10);color:var(--pink);}
   /* Trimestres */
   .quarter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px;}
   .q-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;}
@@ -103,7 +105,36 @@
   .q-meta-footer{display:flex;justify-content:space-between;font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);}
   .q-meta-pct{font-weight:700;}
   .gap-pos{color:var(--master);}.gap-neg{color:var(--minimo);}
-  .q-fechado-note{font-size:11px;color:var(--fechado);background:var(--fechado-bg);border-radius:8px;padding:8px 10px;margin-bottom:10px;font-style:italic;}
+  .q-note{font-size:11px;color:var(--muted);background:var(--surface2);border-radius:8px;padding:8px 10px;margin-bottom:10px;font-style:italic;}
+  /* Schedule */
+  .sched-container{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:36px;}
+  .sched-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:16px;}
+  .sched-title{font-family:'Bebas Neue',cursive;font-size:26px;color:var(--text);letter-spacing:2px;}
+  .sched-subtitle{font-size:12px;color:var(--muted);margin-top:2px;}
+  .sched-kpis{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+  .sched-kpi{display:flex;flex-direction:column;}
+  .sched-kpi-label{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+  .sched-kpi-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;}
+  .sched-ksep{width:1px;background:var(--border);align-self:stretch;min-height:26px;}
+  .sched-prog-wrap{margin-bottom:16px;}
+  .sched-prog-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px;}
+  .sched-prog-bg{background:var(--surface2);border-radius:6px;height:8px;overflow:hidden;}
+  .sched-prog-bar{height:100%;border-radius:6px;}
+  .sched-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  .sched-card{border:1px solid var(--border);border-radius:11px;padding:12px 13px;}
+  .sched-card.realizado{border-color:rgba(255,18,87,0.25);background:rgba(255,18,87,0.025);}
+  .sched-card.em-fechamento{border-color:rgba(183,134,10,0.3);background:rgba(183,134,10,0.04);border-style:dashed;}
+  .sched-card.pendente{background:var(--surface2);border-style:dashed;opacity:.65;}
+  .sched-week{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);margin-bottom:6px;}
+  .sched-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;display:inline-block;margin-bottom:5px;}
+  .badge-sim{background:rgba(30,125,70,0.12);color:var(--master);}
+  .badge-nao{background:rgba(192,57,43,0.10);color:var(--minimo);}
+  .badge-parcial{background:rgba(183,134,10,0.12);color:var(--basica);}
+  .sched-val{font-family:'Bebas Neue',cursive;font-size:20px;line-height:1;margin-bottom:1px;}
+  .sched-val-label{font-size:10px;color:var(--muted);margin-bottom:4px;}
+  .sched-gaps{display:flex;flex-direction:column;gap:2px;margin-bottom:4px;}
+  .sched-gap-line{font-size:10px;font-family:'DM Mono',monospace;}
+  .sched-divider{border:none;border-top:1px solid var(--border);margin:5px 0;}
   /* Tabela */
   .table-wrap{overflow-x:auto;margin-bottom:36px;}
   table{width:100%;border-collapse:collapse;font-size:13px;}
@@ -112,6 +143,7 @@
   tbody tr:hover{background:rgba(0,0,0,0.02);}
   tbody tr.is-month{background:rgba(255,18,87,0.02);}
   tbody tr.is-quarter{background:rgba(0,0,0,0.035);font-weight:700;}
+  tbody tr.is-week td:first-child{color:var(--muted);font-size:12px;padding-left:26px;}
   tbody tr.is-month td:first-child{font-weight:700;color:var(--text);}
   tbody tr.is-quarter td:first-child{color:var(--text);}
   tbody td{padding:8px 13px;}
@@ -126,16 +158,15 @@
   .nivel-master{background:rgba(30,125,70,0.12);color:var(--master);}
   .nivel-basica{background:rgba(183,134,10,0.12);color:var(--basica);}
   .nivel-minimo{background:rgba(192,57,43,0.12);color:var(--minimo);}
-  .nivel-abaixo{background:rgba(107,107,127,0.10);color:var(--muted);}
-  .nivel-fechado{background:var(--fechado-bg);color:var(--fechado);}
+  .nivel-abaixo{background:rgba(192,57,43,0.14);color:var(--minimo);}
   .nivel-vazio{color:var(--muted);font-size:12px;}
   footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
   .animate{animation:fadeUp .45s ease both;}
   .a1{animation-delay:.04s}.a2{animation-delay:.09s}.a3{animation-delay:.14s}.a4{animation-delay:.18s}.a5{animation-delay:.23s}
-  @media(max-width:1300px){.realizado-grid{grid-template-columns:repeat(3,1fr);}}
-  @media(max-width:900px){.annual-grid{grid-template-columns:repeat(2,1fr);}.quarter-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:600px){.annual-grid{grid-template-columns:1fr;}.realizado-grid{grid-template-columns:1fr;}.quarter-grid{grid-template-columns:1fr;}.acum-banner{flex-direction:column;}.pct-grid{flex-direction:column;}header{flex-direction:column;gap:14px;text-align:center;}.header-right{text-align:center;}}
+  @media(max-width:1300px){.realizado-grid{grid-template-columns:repeat(3,1fr);}.sched-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:900px){.annual-grid{grid-template-columns:repeat(2,1fr);}.quarter-grid{grid-template-columns:repeat(2,1fr);}.sched-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.annual-grid{grid-template-columns:1fr;}.realizado-grid{grid-template-columns:1fr;}.quarter-grid{grid-template-columns:1fr;}.sched-grid{grid-template-columns:1fr;}.acum-banner{flex-direction:column;}.pct-grid{flex-direction:column;}header{flex-direction:column;gap:14px;text-align:center;}.header-right{text-align:center;}}
 </style>
 </head>
 <body>
@@ -146,12 +177,11 @@
       <div class="label">Painel de Metas</div>
       <div class="year">2026</div>
       <div class="analyst">Acompanhamento — <strong>Business Connection</strong></div>
+      <div class="source-note">Fonte do realizado: Housecall Pro (operacional)</div>
     </div>
   </header>
 
   <div class="legend-bar animate a1">
-    <div class="legend-item l-fec"><div class="legend-dot"></div> Mês Fechado (meta = realizado)</div>
-    <div class="legend-sep"></div>
     <div class="legend-item l-min"><div class="legend-dot"></div> Meta Mínimo</div>
     <div class="legend-sep"></div>
     <div class="legend-item l-bas"><div class="legend-dot"></div> Meta Básica</div>
@@ -159,7 +189,9 @@
     <div class="legend-item l-mas"><div class="legend-dot"></div> Meta Master</div>
     <div class="legend-sep"></div>
     <div class="legend-item l-meg"><div class="legend-dot"></div> Meta Mega Master</div>
-    <div class="legend-note">Jan–Mai já fechados: a meta do mês foi fixada no valor realizado. A partir de Junho as quatro faixas se diferenciam (cada faixa = +10% sobre a anterior).</div>
+    <div class="legend-sep"></div>
+    <div class="legend-item l-fec"><div class="legend-dot"></div> ⚠️ Abaixo do Mínimo</div>
+    <div class="legend-note">Jan–Jun fechados (dados Housecall Pro). Julho em andamento, com 3 de 5 semanas realizadas. Ago–Dez ainda sem dados. Em Jan–Mai a meta é única (as 4 faixas coincidem); a partir de Junho as faixas se diferenciam (+10% por nível).</div>
   </div>
 
   <div class="section-title animate a1">Metas <span>Anuais</span> 2026</div>
@@ -173,6 +205,9 @@
 
   <div class="section-title animate a3">Metas por <span>Trimestre</span></div>
   <div class="quarter-grid" id="quarterGrid"></div>
+
+  <div class="section-title animate a3">Schedule Semanal — <span>Julho 2026</span></div>
+  <div id="schedSection"></div>
 
   <div class="section-title animate a4">Acompanhamento <span>Detalhado</span></div>
   <div class="table-wrap animate a5">
@@ -205,37 +240,32 @@ const fmt = v => (v===null||v===undefined||isNaN(v))?"—":"$"+Number(v).toLocal
 const fmtPct = v => (v===null||isNaN(v))?"—":v.toFixed(1)+"%";
 
 
-const months = [{"name": "Janeiro", "min": 122436.58, "bas": 122436.58, "mas": 122436.58, "meg": 122436.58, "r2025": 127052.66, "r2026": 122436.58, "status": "fechado", "growth": -3.633202169871927}, {"name": "Fevereiro", "min": 111314.74, "bas": 111314.74, "mas": 111314.74, "meg": 111314.74, "r2025": 101763.49, "r2026": 111314.74, "status": "fechado", "growth": 9.385733527810416}, {"name": "Março", "min": 127014.96, "bas": 127014.96, "mas": 127014.96, "meg": 127014.96, "r2025": 111131.4, "r2026": 127014.96, "status": "fechado", "growth": 14.292594172304149}, {"name": "Abril", "min": 138129.77, "bas": 138129.77, "mas": 138129.77, "meg": 138129.77, "r2025": 110744.83, "r2026": 138129.77, "status": "fechado", "growth": 24.72796247012162}, {"name": "Maio", "min": 154169.03, "bas": 154169.03, "mas": 154169.03, "meg": 154169.03, "r2025": 108470.55, "r2026": 154169.03, "status": "fechado", "growth": 42.12984999154148}, {"name": "Junho", "min": 155075.544, "bas": 170583.0984, "mas": 187641.4082, "meg": 206405.5491, "r2025": 129229.62, "r2026": 76105.99, "status": "parcial", "growth": null}, {"name": "Julho", "min": 153702.06, "bas": 169072.266, "mas": 185979.4926, "meg": 204577.4419, "r2025": 128085.05, "r2026": null, "status": "futuro", "growth": null}, {"name": "Agosto", "min": 153515.508, "bas": 168867.0588, "mas": 185753.7647, "meg": 204329.1411, "r2025": 127929.59, "r2026": null, "status": "futuro", "growth": null}, {"name": "Setembro", "min": 146411.976, "bas": 161053.1736, "mas": 177158.491, "meg": 194874.3401, "r2025": 122009.98, "r2026": null, "status": "futuro", "growth": null}, {"name": "Outubro", "min": 149106.672, "bas": 164017.3392, "mas": 180419.0731, "meg": 198460.9804, "r2025": 124255.56, "r2026": null, "status": "futuro", "growth": null}, {"name": "Novembro", "min": 134867.496, "bas": 148354.2456, "mas": 163189.6702, "meg": 179508.6372, "r2025": 112389.58, "r2026": null, "status": "futuro", "growth": null}, {"name": "Dezembro", "min": 156998.652, "bas": 172698.5172, "mas": 189968.3689, "meg": 208965.2058, "r2025": 130832.21, "r2026": null, "status": "futuro", "growth": null}];
-const quarters = [{"label": "T1", "months": "Jan · Fev · Mar", "min": 360766.28, "bas": 360766.28, "mas": 360766.28, "meg": 360766.28, "r2025": 339947.55, "r2026": 360766.28, "allClosed": true, "anyData": true}, {"label": "T2", "months": "Abr · Mai · Jun", "min": 447374.344, "bas": 462881.89839999995, "mas": 479940.2082, "meg": 498704.3491, "r2025": 348445.0, "r2026": 368404.79, "allClosed": false, "anyData": true}, {"label": "T3", "months": "Jul · Ago · Set", "min": 453629.544, "bas": 498992.49840000004, "mas": 548891.7483, "meg": 603780.9231, "r2025": 378024.62, "r2026": null, "allClosed": false, "anyData": false}, {"label": "T4", "months": "Out · Nov · Dez", "min": 440972.82, "bas": 485070.10199999996, "mas": 533577.1122, "meg": 586934.8234, "r2025": 367477.35, "r2026": null, "allClosed": false, "anyData": false}];
+const months = [{"name": "Janeiro", "min": 122436.58, "bas": 122436.58, "mas": 122436.58, "meg": 122436.58, "r2025": 127052.66, "r2026": 114609.0, "status": "fechado", "growth": -9.794096400657809}, {"name": "Fevereiro", "min": 111314.74, "bas": 111314.74, "mas": 111314.74, "meg": 111314.74, "r2025": 101763.49, "r2026": 113148.2, "status": "fechado", "growth": 11.187420950283832}, {"name": "Março", "min": 127014.96, "bas": 127014.96, "mas": 127014.96, "meg": 127014.96, "r2025": 111131.4, "r2026": 123139.0, "status": "fechado", "growth": 10.804867031280093}, {"name": "Abril", "min": 138129.77, "bas": 138129.77, "mas": 138129.77, "meg": 138129.77, "r2025": 110744.83, "r2026": 130066.5, "status": "fechado", "growth": 17.447017616984915}, {"name": "Maio", "min": 154169.03, "bas": 154169.03, "mas": 154169.03, "meg": 154169.03, "r2025": 108470.55, "r2026": 145025.49, "status": "fechado", "growth": 33.70033617419658}, {"name": "Junho", "min": 155075.544, "bas": 170583.0984, "mas": 187641.4082, "meg": 206405.5491, "r2025": 129229.62, "r2026": 150773.0, "status": "fechado", "growth": 16.67062086849749}, {"name": "Julho", "min": 153702.06, "bas": 169072.266, "mas": 185979.4926, "meg": 204577.4419, "r2025": 128085.05, "r2026": 66549.0, "status": "parcial", "weeks": [{"label": "1 a 4", "min": 19832.52387, "bas": 21815.77677, "mas": 23997.35355, "meg": 26397.08903, "real": 17475.0}, {"label": "5 a 11", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 34287.0}, {"label": "12 a 18", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 14787.0}, {"label": "19 a 25", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": null}, {"label": "26 a 31", "min": 29748.78581, "bas": 32723.66516, "mas": 35996.03032, "meg": 39595.63355, "real": null}], "growth": null}, {"name": "Agosto", "min": 153515.508, "bas": 168867.0588, "mas": 185753.7647, "meg": 204329.1411, "r2025": 127929.59, "r2026": null, "status": "futuro", "growth": null}, {"name": "Setembro", "min": 146411.976, "bas": 161053.1736, "mas": 177158.491, "meg": 194874.3401, "r2025": 122009.98, "r2026": null, "status": "futuro", "growth": null}, {"name": "Outubro", "min": 149106.672, "bas": 164017.3392, "mas": 180419.0731, "meg": 198460.9804, "r2025": 124255.56, "r2026": null, "status": "futuro", "growth": null}, {"name": "Novembro", "min": 134867.496, "bas": 148354.2456, "mas": 163189.6702, "meg": 179508.6372, "r2025": 112389.58, "r2026": null, "status": "futuro", "growth": null}, {"name": "Dezembro", "min": 156998.652, "bas": 172698.5172, "mas": 189968.3689, "meg": 208965.2058, "r2025": 130832.21, "r2026": null, "status": "futuro", "growth": null}];
+const quarters = [{"label": "T1", "months": "Jan · Fev · Mar", "min": 360766.28, "bas": 360766.28, "mas": 360766.28, "meg": 360766.28, "r2025": 339947.55, "r2026": 350896.2, "allClosed": true, "anyData": true}, {"label": "T2", "months": "Abr · Mai · Jun", "min": 447374.344, "bas": 462881.89839999995, "mas": 479940.2082, "meg": 498704.3491, "r2025": 348445.0, "r2026": 425864.99, "allClosed": true, "anyData": true}, {"label": "T3", "months": "Jul · Ago · Set", "min": 453629.544, "bas": 498992.49840000004, "mas": 548891.7483, "meg": 603780.9231, "r2025": 378024.62, "r2026": 66549.0, "allClosed": false, "anyData": true}, {"label": "T4", "months": "Out · Nov · Dez", "min": 440972.82, "bas": 485070.10199999996, "mas": 533577.1122, "meg": 586934.8234, "r2025": 367477.35, "r2026": null, "allClosed": false, "anyData": false}];
 const annualTargets = {min:1702742.988,bas:1807710.7788,mas:1923175.3487,meg:2050186.3756};
 const annual2025 = 1433894.52;
-const sumRealClosed = 653065.08;
-const sum2025Closed = 559162.93;
-const growthAcum = 16.793343221089405;
-const acumTotal = 729171.07;
-const pctMin = 42.82331949911398, pctBas = 40.336710858362004, pctMas = 37.91495510239846, pctMeg = 35.566086999607705;
-const remMin = 973571.918, remBas = 1078539.7088000001, remMas = 1194004.2787000001, remMeg = 1321015.3056;
+const sumRealClosed = 776761.19;
+const sum2025Closed = 688392.55;
+const growthAcum = 12.836954728809877;
+const acumTotal = 843310.19;
+const pctMin = 49.526569537692325, pctBas = 46.65072532010949, pctMas = 43.84988558479852, pctMeg = 41.133342804173104;
+const remMin = 859432.798, remBas = 964400.5888, remMas = 1079865.1587, remMeg = 1206876.1856;
+// Comparativo proporcional: apenas até a última semana FECHADA (Jan-Jun fechados + Jul semanas "1 a 4" e "5 a 11")
+// A semana "12 a 18" ainda está em fechamento e não entra neste comparativo.
+const acumPeriodo = 828523.19;
+const metaPropMin = 862680.06464, metaPropBas = 883641.56452, metaPropMas = 906699.21046, metaPropMeg = 932062.62394;
+const pctPeriodoMin = 96.0406, pctPeriodoBas = 93.7624, pctPeriodoMas = 91.378, pctPeriodoMeg = 88.8914;
+const gapPeriodoMin = -34156.87, gapPeriodoBas = -55118.37, gapPeriodoMas = -78176.02, gapPeriodoMeg = -103539.43;
+const semanaEmFechamento = {label:"12 a 18/07", valor: 14787.0};
 
 
-function getNivel(m){
-  if(m.status==="fechado") return {label:"✅ Mês Fechado",cls:"nivel-fechado"};
-  const r=m.r2026;
+function getNivel(min,bas,mas,meg,r){
   if(r===null||r===undefined) return null;
-  if(r>=m.meg) return {label:"🟤 Mega Master",cls:"nivel-mega"};
-  if(r>=m.mas) return {label:"🟢 Master",cls:"nivel-master"};
-  if(r>=m.bas) return {label:"🟡 Básica",cls:"nivel-basica"};
-  if(r>=m.min) return {label:"🔴 Mínimo",cls:"nivel-minimo"};
-  return {label:"⚠️ Abaixo",cls:"nivel-abaixo"};
-}
-function getNivelQ(q){
-  if(q.allClosed) return {label:"✅ Trimestre Fechado",cls:"nivel-fechado"};
-  if(!q.anyData) return null;
-  const r=q.r2026;
-  if(r>=q.meg) return {label:"🟤 Mega Master",cls:"nivel-mega"};
-  if(r>=q.mas) return {label:"🟢 Master",cls:"nivel-master"};
-  if(r>=q.bas) return {label:"🟡 Básica",cls:"nivel-basica"};
-  if(r>=q.min) return {label:"🔴 Mínimo",cls:"nivel-minimo"};
-  return {label:"⚠️ Abaixo",cls:"nivel-abaixo"};
+  if(r>=meg) return {label:"🟤 Mega Master",cls:"nivel-mega"};
+  if(r>=mas) return {label:"🟢 Master",cls:"nivel-master"};
+  if(r>=bas) return {label:"🟡 Básica",cls:"nivel-basica"};
+  if(r>=min) return {label:"🔴 Mínimo",cls:"nivel-minimo"};
+  return {label:"⚠️ Abaixo do Mínimo",cls:"nivel-abaixo"};
 }
 
 // LOGO
@@ -254,39 +284,41 @@ document.getElementById("acumBanner").innerHTML=`
   <div class="acum-item">
     <div class="acum-label">Total Realizado 2026</div>
     <div class="acum-val">${fmt(acumTotal)}</div>
-    <div class="acum-note">Jan – Jun (parcial)</div>
+    <div class="acum-note">Jan – Jul (parcial)</div>
+    <div class="acum-note" style="margin-top:4px;">Inclui ${fmt(semanaEmFechamento.valor)} da semana ${semanaEmFechamento.label}, ainda em fechamento</div>
   </div>
   <div class="acum-sep"></div>
   <div class="acum-item">
     <div class="acum-label">Crescimento vs 2025</div>
     <div class="acum-sub" style="color:${growthAcum>=0?"var(--master)":"var(--minimo)"}">${growthAcum>=0?"▲ ":"▼ "}${Math.abs(growthAcum).toFixed(1)}%</div>
-    <div class="acum-note">${fmt(sumRealClosed)} vs ${fmt(sum2025Closed)} — Jan a Mai fechados</div>
+    <div class="acum-note">${fmt(sumRealClosed)} vs ${fmt(sum2025Closed)} — Jan a Jun fechados</div>
   </div>
   <div class="acum-sep"></div>
-  <div class="acum-item" style="flex:1;min-width:280px;">
-    <div class="acum-label" style="margin-bottom:8px;">% vs Meta Anual Total</div>
+  <div class="acum-item" style="flex:1;min-width:300px;">
+    <div class="acum-label" style="margin-bottom:8px;">% vs Meta do Período (até a última semana fechada — 05 a 11/07)</div>
     <div class="pct-grid">
       <div class="pct-item">
-        <div class="pct-val td-minimo">${fmtPct(pctMin)}</div>
+        <div class="pct-val td-minimo">${fmtPct(pctPeriodoMin)}</div>
         <div class="pct-meta">🔴 Mínimo</div>
-        <div class="pct-meta">${fmt(annualTargets.min)}</div>
+        <div class="pct-meta">${fmt(metaPropMin)}</div>
       </div>
       <div class="pct-item">
-        <div class="pct-val td-basica">${fmtPct(pctBas)}</div>
+        <div class="pct-val td-basica">${fmtPct(pctPeriodoBas)}</div>
         <div class="pct-meta">🟡 Básica</div>
-        <div class="pct-meta">${fmt(annualTargets.bas)}</div>
+        <div class="pct-meta">${fmt(metaPropBas)}</div>
       </div>
       <div class="pct-item">
-        <div class="pct-val td-master">${fmtPct(pctMas)}</div>
+        <div class="pct-val td-master">${fmtPct(pctPeriodoMas)}</div>
         <div class="pct-meta">🟢 Master</div>
-        <div class="pct-meta">${fmt(annualTargets.mas)}</div>
+        <div class="pct-meta">${fmt(metaPropMas)}</div>
       </div>
       <div class="pct-item">
-        <div class="pct-val td-mega">${fmtPct(pctMeg)}</div>
+        <div class="pct-val td-mega">${fmtPct(pctPeriodoMeg)}</div>
         <div class="pct-meta">🟤 Mega Master</div>
-        <div class="pct-meta">${fmt(annualTargets.meg)}</div>
+        <div class="pct-meta">${fmt(metaPropMeg)}</div>
       </div>
     </div>
+    <div class="acum-note" style="margin-top:8px;">Realizado no período: ${fmt(acumPeriodo)} (Jan–Jun fechados + Jul semanas 1–4 e 5–11). Não inclui a semana 12–18/07, ainda em fechamento.</div>
   </div>
   <div class="acum-sep"></div>
   <div class="acum-item">
@@ -300,35 +332,40 @@ document.getElementById("acumBanner").innerHTML=`
   <div class="acum-sep"></div>
   <div class="acum-item">
     <div class="acum-label">Meses Fechados</div>
-    <div class="nivel-badge nivel-fechado" style="font-size:13px;padding:5px 12px;margin-top:4px;">5 de 12 (+ Jun parcial)</div>
+    <div class="nivel-badge" style="font-size:13px;padding:5px 12px;margin-top:4px;background:var(--fechado-bg);color:var(--fechado);">6 de 12 (+ Jul parcial)</div>
   </div>`;
 
-// REALIZADO MENSAL (apenas meses com dado: Jan-Jun)
+// REALIZADO MENSAL (Jan-Jul, únicos meses com dado)
 const realizadoGrid=document.getElementById("realizadoGrid");
 months.filter(m=>m.r2026!==null).forEach(m=>{
   const isFechado = m.status==="fechado";
-  const isParcial = m.status==="parcial";
+  const nivel = getNivel(m.min,m.bas,m.mas,m.meg,m.r2026);
+  const isAbaixo = nivel && nivel.cls==="nivel-abaixo";
   const g=m.growth;
   const gClass=g!==null?(g>=0?"growth-pos":"growth-neg"):"";
   const gLabel=g!==null?(g>=0?"▲ ":"▼ ")+Math.abs(g).toFixed(1)+"% vs 2025":"";
-  const barPct = isFechado ? 100 : Math.min(100,(m.r2026/m.meg)*100);
-  const barColor = isFechado ? "var(--fechado)" : (m.r2026>=m.meg?"var(--mega)":m.r2026>=m.mas?"var(--master)":m.r2026>=m.bas?"var(--basica)":"var(--minimo)");
-  const badge = isFechado ? `<span class="fechado-badge">✅ Mês Fechado</span>` : `<span class="parcial-badge">📍 Em Andamento</span>`;
+  const barPct = Math.min(100,(m.r2026/m.meg)*100);
+  const barColor = m.r2026>=m.meg?"var(--mega)":m.r2026>=m.mas?"var(--master)":m.r2026>=m.bas?"var(--basica)":m.r2026>=m.min?"var(--minimo)":"var(--minimo)";
+  const badge = isFechado ? `<span class="status-badge status-fechado">🔒 Mês Fechado</span>` : `<span class="status-badge status-parcial">📍 Em Andamento</span>`;
   const comp2025 = isFechado
     ? `<div class="meta-line"><span class="meta-line-label">📅 2025</span><span class="meta-line-val td-2025">${fmt(m.r2025)}</span></div>`
-    : `<div class="meta-line"><span class="meta-line-label" style="font-style:italic;color:var(--muted);font-size:10px;">⚠️ Mês parcial — comparativo indisponível</span></div>`;
-  const metaLines = isFechado
-    ? `<div class="meta-line"><span class="meta-line-label">Meta do Mês</span><span class="meta-line-val td-fechado" style="color:var(--fechado);">= Realizado</span></div>`
+    : `<div class="meta-line"><span class="meta-line-label" style="font-style:italic;color:var(--muted);font-size:10px;">⚠️ Mês parcial — comparativo vs 2025 indisponível</span></div>`;
+  const isUnica = m.min===m.meg;
+  const metaLines = isUnica
+    ? `<div class="meta-line"><span class="meta-line-label">Meta do Mês</span><span class="meta-line-val" style="color:var(--text);font-weight:700;">${fmt(m.min)}</span></div>`
     : `<div class="meta-line"><span class="meta-line-label">🔴 Mínimo</span><span class="meta-line-val td-minimo">${fmt(m.min)}</span></div>
        <div class="meta-line"><span class="meta-line-label">🟢 Master</span><span class="meta-line-val td-master">${fmt(m.mas)}</span></div>
        <div class="meta-line"><span class="meta-line-label">🟤 Mega Master</span><span class="meta-line-val td-mega">${fmt(m.meg)}</span></div>`;
   realizadoGrid.innerHTML+=`
-    <div class="real-card ${isParcial?'parcial':''}">
+    <div class="real-card ${!isFechado?'parcial':''} ${isAbaixo?'abaixo':''}">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px;">
         <div class="real-month">${m.name}</div>
         ${g!==null?`<span class="real-growth ${gClass}">${gLabel}</span>`:""}
       </div>
-      ${badge}
+      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+        ${badge}
+        ${nivel?`<span class="nivel-badge ${nivel.cls}" style="font-size:9px;padding:2px 7px;">${nivel.label}</span>`:""}
+      </div>
       <div class="real-amount">${fmt(m.r2026)}</div>
       <div class="real-progress"><div class="real-bar" style="width:${barPct}%;background:${barColor}"></div></div>
       <div class="meta-row">
@@ -351,11 +388,76 @@ function mBlock(name,cls,target,real,hasReal){
 }
 quarters.forEach(q=>{
   const hasReal = q.anyData;
-  const nivel = getNivelQ(q);
+  const nivel = q.allClosed ? getNivel(q.min,q.bas,q.mas,q.meg,q.r2026) : null;
   const nivelHtml = nivel ? `<span class="nivel-badge ${nivel.cls}" style="font-size:11px;padding:3px 10px;">${nivel.label}</span>` : "";
-  const fechadoNote = q.allClosed ? `<div class="q-fechado-note">✅ Trimestre encerrado — meta mensal foi fixada no valor realizado em cada mês.</div>` : "";
-  quarterGrid.innerHTML+=`<div class="q-card"><div class="q-label">${q.label}</div><div class="q-months-label">${q.months}</div><div class="q-acumulado">${hasReal?fmt(q.r2026):"Sem dados"}<span class="q-acumulado-label">acumulado real</span></div>${nivelHtml}<hr class="q-divider">${fechadoNote}${mBlock("🔴 Mínimo","td-minimo",q.min,q.r2026,hasReal)}${mBlock("🟡 Básica","td-basica",q.bas,q.r2026,hasReal)}${mBlock("🟢 Master","td-master",q.mas,q.r2026,hasReal)}${mBlock("🟤 Mega Master","td-mega",q.meg,q.r2026,hasReal)}</div>`;
+  let note = "";
+  if(q.allClosed) note = `<div class="q-note">✅ Trimestre encerrado — comparação final vs meta.</div>`;
+  else if(hasReal) note = `<div class="q-note">📍 Trimestre em andamento — comparação parcial (meses ainda faltando).</div>`;
+  quarterGrid.innerHTML+=`<div class="q-card"><div class="q-label">${q.label}</div><div class="q-months-label">${q.months}</div><div class="q-acumulado">${hasReal?fmt(q.r2026):"Sem dados"}<span class="q-acumulado-label">acumulado real</span></div>${nivelHtml}<hr class="q-divider">${note}${mBlock("🔴 Mínimo","td-minimo",q.min,q.r2026,hasReal)}${mBlock("🟡 Básica","td-basica",q.bas,q.r2026,hasReal)}${mBlock("🟢 Master","td-master",q.mas,q.r2026,hasReal)}${mBlock("🟤 Mega Master","td-mega",q.meg,q.r2026,hasReal)}</div>`;
 });
+
+// SCHEDULE — Julho (mês ativo)
+const julho = months.find(m=>m.name==="Julho");
+// Semana "12 a 18" já tem lançamentos no Housecall, mas ainda está em fechamento (não é definitiva).
+julho.weeks.forEach((w,i)=>{ w.closed = (w.real!==null) && w.label!=="12 a 18"; w.emFechamento = w.label==="12 a 18"; });
+const realJul = julho.weeks.reduce((s,w)=>w.real!==null?s+w.real:s,0);
+const progMasPct = Math.min(100, realJul/julho.mas*100);
+const progColor = realJul>=julho.mas?"var(--master)":realJul>=julho.min?"var(--minimo)":"var(--minimo)";
+const gapMas = realJul-julho.mas, gapMeg = realJul-julho.meg;
+const semanasFechadas = julho.weeks.filter(w=>w.closed).length;
+const semanasFeitas = julho.weeks.filter(w=>w.real!==null).length;
+
+let sHtml = `<div class="sched-container animate a3">
+  <div class="sched-top">
+    <div>
+      <div class="sched-title">Julho 2026</div>
+      <div class="sched-subtitle">${semanasFechadas} de ${julho.weeks.length} semanas fechadas + 1 em fechamento (Housecall Pro)</div>
+    </div>
+    <div class="sched-kpis">
+      <div class="sched-kpi"><div class="sched-kpi-label">Realizado</div><div class="sched-kpi-val" style="color:var(--pink)">${fmt(realJul)}</div></div>
+      <div class="sched-ksep"></div>
+      <div class="sched-kpi"><div class="sched-kpi-label">Meta Mínimo (mês)</div><div class="sched-kpi-val td-minimo">${fmt(julho.min)}</div></div>
+      <div class="sched-kpi"><div class="sched-kpi-label">Meta Master</div><div class="sched-kpi-val td-master">${fmt(julho.mas)}</div></div>
+      <div class="sched-kpi"><div class="sched-kpi-label">Meta Mega Master</div><div class="sched-kpi-val td-mega">${fmt(julho.meg)}</div></div>
+      <div class="sched-ksep"></div>
+      <div class="sched-kpi"><div class="sched-kpi-label">Gap Realizado vs Master</div><div class="sched-kpi-val ${gapMas>=0?"gap-pos":"gap-neg"}">${gapMas>=0?"+":""}${fmt(Math.abs(gapMas)).replace("$","")}</div></div>
+      <div class="sched-kpi"><div class="sched-kpi-label">Gap Realizado vs Mega Master</div><div class="sched-kpi-val ${gapMeg>=0?"gap-pos":"gap-neg"}">${gapMeg>=0?"+":""}${fmt(Math.abs(gapMeg)).replace("$","")}</div></div>
+    </div>
+  </div>
+  <div class="sched-prog-wrap">
+    <div class="sched-prog-labels"><span>Realizado vs Meta Master (${fmtPct(progMasPct)})</span><span style="font-weight:700">${fmt(realJul)} / ${fmt(julho.mas)}</span></div>
+    <div class="sched-prog-bg"><div class="sched-prog-bar" style="width:${progMasPct}%;background:${progColor}"></div></div>
+  </div>
+  <div class="sched-grid">`;
+
+julho.weeks.forEach(w=>{
+  const hasReal = w.real!==null;
+  const cardCls = w.closed?"realizado":(w.emFechamento?"em-fechamento":"pendente");
+  const gapMasW = w.closed?(w.real-w.mas):null;
+  const gapMegW = w.closed?(w.real-w.meg):null;
+  const bateuMas = w.closed && w.real>=w.mas;
+  const badgeHtml = w.closed
+    ? (bateuMas?`<span class="sched-badge badge-sim">✓ Master Batida</span>`:`<span class="sched-badge badge-nao">✗ Abaixo do Master</span>`)
+    : (w.emFechamento?`<span class="sched-badge badge-parcial">⏳ Em Fechamento</span>`:``);
+  const valHtml = w.closed
+    ? `<div class="sched-val" style="color:var(--pink)">${fmt(w.real)}</div><div class="sched-val-label">Realizado</div>`
+    : w.emFechamento
+      ? `<div class="sched-val" style="color:var(--muted)">${fmt(w.real)}</div><div class="sched-val-label">Parcial — semana ainda em fechamento</div>`
+      : `<div class="sched-val-label" style="color:var(--muted)">Sem dados ainda</div>`;
+  sHtml += `<div class="sched-card ${cardCls}">
+    <div class="sched-week">${w.label}</div>
+    ${badgeHtml}
+    ${valHtml}
+    <div class="sched-gaps">
+      <div class="sched-gap-line ${gapMasW!==null?(gapMasW>=0?"gap-pos":"gap-neg"):""}">🟢 ${gapMasW!==null?(gapMasW>=0?"+":"")+fmt(Math.abs(gapMasW)).replace("$","")+"("+fmtPct(gapMasW/w.mas*100)+")":"—"}</div>
+      <div class="sched-gap-line ${gapMegW!==null?(gapMegW>=0?"gap-pos":"gap-neg"):""}">🟤 ${gapMegW!==null?(gapMegW>=0?"+":"")+fmt(Math.abs(gapMegW)).replace("$","")+"("+fmtPct(gapMegW/w.meg*100)+")":"—"}</div>
+    </div>
+    <div class="sched-divider"></div>
+    <div style="font-size:10px;color:var(--muted);">Meta Mínimo: <strong style="color:var(--text)">${fmt(w.min)}</strong></div>
+  </div>`;
+});
+sHtml += "</div></div>";
+document.getElementById("schedSection").innerHTML = sHtml;
 
 // TABELA
 const body=document.getElementById("tableBody");
@@ -364,12 +466,18 @@ quarters.forEach(q=>{
   const idxs = quarterMonthIdx[q.label];
   idxs.forEach(i=>{
     const m = months[i];
-    const nivel = getNivel(m);
+    const nivel = getNivel(m.min,m.bas,m.mas,m.meg,m.r2026);
     const nivelCell = nivel?`<span class="nivel-badge ${nivel.cls}">${nivel.label}</span>`:`<span class="nivel-vazio">—</span>`;
     const realLabel = m.r2026!==null ? (m.status==="parcial" ? `${fmt(m.r2026)} <small style="color:var(--muted)">(parcial)</small>` : fmt(m.r2026)) : "—";
     body.innerHTML+=`<tr class="is-month"><td>${m.name}</td><td class="td-minimo">${fmt(m.min)}</td><td class="td-basica">${fmt(m.bas)}</td><td class="td-master">${fmt(m.mas)}</td><td class="td-mega">${fmt(m.meg)}</td><td class="td-2025">${fmt(m.r2025)}</td><td class="td-2026">${realLabel}</td><td>${nivelCell}</td></tr>`;
+    if(m.weeks){
+      m.weeks.forEach(w=>{
+        const wr = w.real!==null ? `<span class="td-2026">${fmt(w.real)}</span>` : "—";
+        body.innerHTML+=`<tr class="is-week"><td>${w.label}</td><td class="td-minimo">${fmt(w.min)}</td><td class="td-basica">${fmt(w.bas)}</td><td class="td-master">${fmt(w.mas)}</td><td class="td-mega">${fmt(w.meg)}</td><td>—</td><td>${wr}</td><td>—</td></tr>`;
+      });
+    }
   });
-  const nivelQ = getNivelQ(q);
+  const nivelQ = q.allClosed ? getNivel(q.min,q.bas,q.mas,q.meg,q.r2026) : null;
   const nivelQCell = nivelQ?`<span class="nivel-badge ${nivelQ.cls}">${nivelQ.label}</span>`:`<span class="nivel-vazio">—</span>`;
   const realQLabel = q.anyData ? (q.allClosed?fmt(q.r2026):`${fmt(q.r2026)} <small style="color:var(--muted)">(parcial)</small>`) : "—";
   body.innerHTML+=`<tr class="is-quarter"><td>${q.label} — Sub total</td><td class="td-minimo">${fmt(q.min)}</td><td class="td-basica">${fmt(q.bas)}</td><td class="td-master">${fmt(q.mas)}</td><td class="td-mega">${fmt(q.meg)}</td><td class="td-2025">${fmt(q.r2025)}</td><td class="td-2026">${realQLabel}</td><td>${nivelQCell}</td></tr>`;
