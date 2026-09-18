@@ -191,7 +191,7 @@
     <div class="legend-item l-meg"><div class="legend-dot"></div> Meta Mega Master</div>
     <div class="legend-sep"></div>
     <div class="legend-item l-fec"><div class="legend-dot"></div> ⚠️ Abaixo do Mínimo</div>
-    <div class="legend-note">Jan–Ago fechados (dados Housecall Pro). Setembro em andamento, com a 1ª semana já fechada — bateu a Master. Out–Dez ainda sem dados. Em Jan–Mai a meta é única (as 4 faixas coincidem); a partir de Junho as faixas se diferenciam (+10% por nível).</div>
+    <div class="legend-note">Jan–Ago fechados (dados Housecall Pro). Setembro em andamento, com as semanas 1–5 e 6–12 já fechadas (1ª bateu a Master). Out–Dez ainda sem dados. Em Jan–Mai a meta é única (as 4 faixas coincidem); a partir de Junho as faixas se diferenciam (+10% por nível).</div>
   </div>
 
   <div class="section-title animate a1">Metas <span>Anuais</span> 2026</div>
@@ -240,22 +240,21 @@ const fmt = v => (v===null||v===undefined||isNaN(v))?"—":"$"+Number(v).toLocal
 const fmtPct = v => (v===null||isNaN(v))?"—":v.toFixed(1)+"%";
 
 
-const months = [{"name": "Janeiro", "min": 122436.58, "bas": 122436.58, "mas": 122436.58, "meg": 122436.58, "r2025": 127052.66, "r2026": 114609.0, "status": "fechado", "growth": -9.794096400657809}, {"name": "Fevereiro", "min": 111314.74, "bas": 111314.74, "mas": 111314.74, "meg": 111314.74, "r2025": 101763.49, "r2026": 113148.2, "status": "fechado", "growth": 11.187420950283832}, {"name": "Março", "min": 127014.96, "bas": 127014.96, "mas": 127014.96, "meg": 127014.96, "r2025": 111131.4, "r2026": 123139.0, "status": "fechado", "growth": 10.804867031280093}, {"name": "Abril", "min": 138129.77, "bas": 138129.77, "mas": 138129.77, "meg": 138129.77, "r2025": 110744.83, "r2026": 130066.5, "status": "fechado", "growth": 17.447017616984915}, {"name": "Maio", "min": 154169.03, "bas": 154169.03, "mas": 154169.03, "meg": 154169.03, "r2025": 108470.55, "r2026": 145025.49, "status": "fechado", "growth": 33.70033617419658}, {"name": "Junho", "min": 155075.544, "bas": 170583.0984, "mas": 187641.4082, "meg": 206405.5491, "r2025": 129229.62, "r2026": 153413.0, "status": "fechado", "growth": 18.713496178352923}, {"name": "Julho", "min": 153702.06, "bas": 169072.266, "mas": 185979.4926, "meg": 204577.4419, "r2025": 128085.05, "r2026": 151217.77, "status": "fechado", "weeks": [{"label": "1 a 4", "min": 19832.52387, "bas": 21815.77677, "mas": 23997.35355, "meg": 26397.08903, "real": 17485.0}, {"label": "5 a 11", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 34327.0}, {"label": "12 a 18", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 33600.0}, {"label": "19 a 25", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 33732.75}, {"label": "26 a 31", "min": 29748.78581, "bas": 32723.66516, "mas": 35996.03032, "meg": 39595.63355, "real": 32073.02}], "growth": 18.060437186072836}, {"name": "Agosto", "min": 153515.508, "bas": 168867.0588, "mas": 185753.7647, "meg": 204329.1411, "r2025": 127929.59, "r2026": 149659.5, "status": "fechado", "weeks": [{"label": "1 a 8", "min": 39616.90581, "bas": 43578.59613, "mas": 47936.45419, "meg": 52730.10065, "real": 37790.5}, {"label": "9 a 15", "min": 34664.79258, "bas": 38131.27161, "mas": 41944.39742, "meg": 46138.83806, "real": 34916.0}, {"label": "16 a 22", "min": 34664.79258, "bas": 38131.27161, "mas": 41944.39742, "meg": 46138.83806, "real": 34654.0}, {"label": "23 a 31", "min": 44569.01903, "bas": 49025.92065, "mas": 53928.51097, "meg": 59321.36323, "real": 42299.0}], "growth": 16.985835724166712}, {"name": "Setembro", "min": 146411.976, "bas": 161053.1736, "mas": 177158.491, "meg": 194874.3401, "r2025": 122009.98, "r2026": 30026.0, "status": "parcial", "weeks": [{"label": "1 a 5", "min": 24401.99667, "bas": 26842.195, "mas": 29526.415, "meg": 32479.05667, "real": 30026.0, "deepMas": -1, "deepMeg": 4, "ticket": 650.0}, {"label": "6 a 12", "min": 34162.79533, "bas": 37579.073, "mas": 41336.981, "meg": 45470.67933, "real": null, "deepMas": 17, "deepMeg": 24, "ticket": 650.0}, {"label": "13 a 19", "min": 34162.79533, "bas": 37579.073, "mas": 41336.981, "meg": 45470.67933, "real": null, "deepMas": 5, "deepMeg": 12, "ticket": 650.0}, {"label": "20 a 26", "min": 34162.79533, "bas": 37579.073, "mas": 41336.981, "meg": 45470.67933, "real": null, "deepMas": 18, "deepMeg": 24, "ticket": 650.0}, {"label": "27 a 30", "min": 19521.59733, "bas": 21473.756, "mas": 23621.132, "meg": 25983.24533, "real": null, "deepMas": 8, "deepMeg": 12, "ticket": 650.0}], "growth": null}, {"name": "Outubro", "min": 149106.672, "bas": 164017.3392, "mas": 180419.0731, "meg": 198460.9804, "r2025": 124255.56, "r2026": null, "status": "futuro", "growth": null}, {"name": "Novembro", "min": 134867.496, "bas": 148354.2456, "mas": 163189.6702, "meg": 179508.6372, "r2025": 112389.58, "r2026": null, "status": "futuro", "growth": null}, {"name": "Dezembro", "min": 156998.652, "bas": 172698.5172, "mas": 189968.3689, "meg": 208965.2058, "r2025": 130832.21, "r2026": null, "status": "futuro", "growth": null}];
-const quarters = [{"label": "T1", "months": "Jan · Fev · Mar", "min": 360766.28, "bas": 360766.28, "mas": 360766.28, "meg": 360766.28, "r2025": 339947.55, "r2026": 350896.2, "allClosed": true, "anyData": true}, {"label": "T2", "months": "Abr · Mai · Jun", "min": 447374.344, "bas": 462881.89839999995, "mas": 479940.2082, "meg": 498704.3491, "r2025": 348445.0, "r2026": 428504.99, "allClosed": true, "anyData": true}, {"label": "T3", "months": "Jul · Ago · Set", "min": 453629.544, "bas": 498992.49840000004, "mas": 548891.7483, "meg": 603780.9231, "r2025": 378024.62, "r2026": 330903.27, "allClosed": false, "anyData": true}, {"label": "T4", "months": "Out · Nov · Dez", "min": 440972.82, "bas": 485070.10199999996, "mas": 533577.1122, "meg": 586934.8234, "r2025": 367477.35, "r2026": null, "allClosed": false, "anyData": false}];
+const months = [{"name": "Janeiro", "min": 122436.58, "bas": 122436.58, "mas": 122436.58, "meg": 122436.58, "r2025": 127052.66, "r2026": 114609.0, "status": "fechado", "growth": -9.794096400657809}, {"name": "Fevereiro", "min": 111314.74, "bas": 111314.74, "mas": 111314.74, "meg": 111314.74, "r2025": 101763.49, "r2026": 113148.2, "status": "fechado", "growth": 11.187420950283832}, {"name": "Março", "min": 127014.96, "bas": 127014.96, "mas": 127014.96, "meg": 127014.96, "r2025": 111131.4, "r2026": 123139.0, "status": "fechado", "growth": 10.804867031280093}, {"name": "Abril", "min": 138129.77, "bas": 138129.77, "mas": 138129.77, "meg": 138129.77, "r2025": 110744.83, "r2026": 130066.5, "status": "fechado", "growth": 17.447017616984915}, {"name": "Maio", "min": 154169.03, "bas": 154169.03, "mas": 154169.03, "meg": 154169.03, "r2025": 108470.55, "r2026": 145025.49, "status": "fechado", "growth": 33.70033617419658}, {"name": "Junho", "min": 155075.544, "bas": 170583.0984, "mas": 187641.4082, "meg": 206405.5491, "r2025": 129229.62, "r2026": 153413.0, "status": "fechado", "growth": 18.713496178352923}, {"name": "Julho", "min": 153702.06, "bas": 169072.266, "mas": 185979.4926, "meg": 204577.4419, "r2025": 128085.05, "r2026": 151217.77, "status": "fechado", "weeks": [{"label": "1 a 4", "min": 19832.52387, "bas": 21815.77677, "mas": 23997.35355, "meg": 26397.08903, "real": 17485.0}, {"label": "5 a 11", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 34327.0}, {"label": "12 a 18", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 33600.0}, {"label": "19 a 25", "min": 34706.91677, "bas": 38177.60935, "mas": 41995.36871, "meg": 46194.90581, "real": 33732.75}, {"label": "26 a 31", "min": 29748.78581, "bas": 32723.66516, "mas": 35996.03032, "meg": 39595.63355, "real": 32073.02}], "growth": 18.060437186072836}, {"name": "Agosto", "min": 153515.508, "bas": 168867.0588, "mas": 185753.7647, "meg": 204329.1411, "r2025": 127929.59, "r2026": 149659.5, "status": "fechado", "weeks": [{"label": "1 a 8", "min": 39616.90581, "bas": 43578.59613, "mas": 47936.45419, "meg": 52730.10065, "real": 37790.5}, {"label": "9 a 15", "min": 34664.79258, "bas": 38131.27161, "mas": 41944.39742, "meg": 46138.83806, "real": 34916.0}, {"label": "16 a 22", "min": 34664.79258, "bas": 38131.27161, "mas": 41944.39742, "meg": 46138.83806, "real": 34654.0}, {"label": "23 a 31", "min": 44569.01903, "bas": 49025.92065, "mas": 53928.51097, "meg": 59321.36323, "real": 42299.0}], "growth": 16.985835724166712}, {"name": "Setembro", "min": 146411.976, "bas": 161053.1736, "mas": 177158.491, "meg": 194874.3401, "r2025": 122009.98, "r2026": 60588.0, "status": "parcial", "weeks": [{"label": "1 a 5", "min": 24401.99667, "bas": 26842.195, "mas": 29526.415, "meg": 32479.05667, "real": 30026.0, "deepMas": -1, "deepMeg": 4, "ticket": 650.0}, {"label": "6 a 12", "min": 34162.79533, "bas": 37579.073, "mas": 41336.981, "meg": 45470.67933, "real": 30562.0, "deepMas": 17, "deepMeg": 23, "ticket": 650.0}, {"label": "13 a 19", "min": 34162.79533, "bas": 37579.073, "mas": 41336.981, "meg": 45470.67933, "real": null, "deepMas": 3, "deepMeg": 9, "ticket": 650.0}, {"label": "20 a 26", "min": 34162.79533, "bas": 37579.073, "mas": 41336.981, "meg": 45470.67933, "real": null, "deepMas": 17, "deepMeg": 23, "ticket": 650.0}, {"label": "27 a 30", "min": 19521.59733, "bas": 21473.756, "mas": 23621.132, "meg": 25983.24533, "real": null, "deepMas": 8, "deepMeg": 12, "ticket": 650.0}], "growth": null}, {"name": "Outubro", "min": 149106.672, "bas": 164017.3392, "mas": 180419.0731, "meg": 198460.9804, "r2025": 124255.56, "r2026": null, "status": "futuro", "growth": null}, {"name": "Novembro", "min": 134867.496, "bas": 148354.2456, "mas": 163189.6702, "meg": 179508.6372, "r2025": 112389.58, "r2026": null, "status": "futuro", "growth": null}, {"name": "Dezembro", "min": 156998.652, "bas": 172698.5172, "mas": 189968.3689, "meg": 208965.2058, "r2025": 130832.21, "r2026": null, "status": "futuro", "growth": null}];
+const quarters = [{"label": "T1", "months": "Jan · Fev · Mar", "min": 360766.28, "bas": 360766.28, "mas": 360766.28, "meg": 360766.28, "r2025": 339947.55, "r2026": 350896.2, "allClosed": true, "anyData": true}, {"label": "T2", "months": "Abr · Mai · Jun", "min": 447374.344, "bas": 462881.8984, "mas": 479940.2082, "meg": 498704.3491, "r2025": 348445.0, "r2026": 428504.99, "allClosed": true, "anyData": true}, {"label": "T3", "months": "Jul · Ago · Set", "min": 453629.544, "bas": 498992.4984, "mas": 548891.7483, "meg": 603780.9231, "r2025": 378024.62, "r2026": 361465.27, "allClosed": false, "anyData": true}, {"label": "T4", "months": "Out · Nov · Dez", "min": 440972.82, "bas": 485070.102, "mas": 533577.1122, "meg": 586934.8234, "r2025": 367477.35, "r2026": null, "allClosed": false, "anyData": false}];
 const annualTargets = {min:1702742.988,bas:1807710.7788,mas:1923175.3487,meg:2050186.3756};
 const annual2025 = 1433894.52;
 const sumRealClosed = 1080278.46;
 const sum2025Closed = 944407.19;
 const growthAcum = 14.386937270140862;
-const acumTotal = 1110304.46;
-const remMin = 592438.5279999999, remBas = 697406.3188, remMas = 812870.8887, remMeg = 939881.9156;
-// Comparativo proporcional: ate a ultima semana FECHADA (Jan-Ago fechados + Set semana "1 a 5")
-// A semana "6 a 12" contem a data de hoje (11/09) e ainda esta em fechamento.
-const acumPeriodo = 1110304.46;
-const metaPropMin = 1139760.18867, metaPropBas = 1188429.6982, metaPropMas = 1241966.1605, metaPropMeg = 1300856.2687700002;
-const pctPeriodoMin = 97.41562049957436, pctPeriodoBas = 93.42617924153791, pctPeriodoMas = 89.39893012487597, pctPeriodoMeg = 85.35181684982209;
-const gapPeriodoMin = -29455.7286700001, gapPeriodoBas = -78125.23820000002, gapPeriodoMas = -131661.70050000004, gapPeriodoMeg = -190551.80877000024;
-const semanaEmFechamento = {label:"6 a 12/09", valor: null};
+const acumTotal = 1140866.46;
+const remMin = 561876.5279999999, remBas = 666844.3188, remMas = 782308.8887, remMeg = 909319.9156;
+
+const acumPeriodo = 1140866.46;
+const metaPropMin = 1173922.984, metaPropBas = 1226008.7712, metaPropMas = 1283303.1415, metaPropMeg = 1346326.9481;
+const pctPeriodoMin = 97.18409772612476, pctPeriodoBas = 93.05532609553323, pctPeriodoMas = 88.9007766837139, pctPeriodoMeg = 84.73918327268458;
+const gapPeriodoMin = -33056.523999999976, gapPeriodoBas = -85142.31120000011, gapPeriodoMas = -142436.68149999995, gapPeriodoMeg = -205460.48809999996;
+const semanaEmFechamento = {label:"13 a 19/09", valor: null};
 
 
 function getNivel(min,bas,mas,meg,r){
@@ -283,18 +282,18 @@ document.getElementById("acumBanner").innerHTML=`
   <div class="acum-item">
     <div class="acum-label">Total Realizado 2026</div>
     <div class="acum-val">${fmt(acumTotal)}</div>
-    <div class="acum-note">Jan – Jul (parcial)</div>
+    <div class="acum-note">Jan – Set (parcial)</div>
     <div class="acum-note" style="margin-top:4px;">Semana ${semanaEmFechamento.label} em fechamento — ainda sem lançamentos</div>
   </div>
   <div class="acum-sep"></div>
   <div class="acum-item">
     <div class="acum-label">Crescimento vs 2025</div>
     <div class="acum-sub" style="color:${growthAcum>=0?"var(--master)":"var(--minimo)"}">${growthAcum>=0?"▲ ":"▼ "}${Math.abs(growthAcum).toFixed(1)}%</div>
-    <div class="acum-note">${fmt(sumRealClosed)} vs ${fmt(sum2025Closed)} — Jan a Jun fechados</div>
+    <div class="acum-note">${fmt(sumRealClosed)} vs ${fmt(sum2025Closed)} — Jan a Ago fechados</div>
   </div>
   <div class="acum-sep"></div>
   <div class="acum-item" style="flex:1;min-width:300px;">
-    <div class="acum-label" style="margin-bottom:8px;">% vs Meta do Período (até a última semana fechada — 1 a 5/09)</div>
+    <div class="acum-label" style="margin-bottom:8px;">% vs Meta do Período (até a última semana fechada — 6 a 12/09)</div>
     <div class="pct-grid">
       <div class="pct-item">
         <div class="pct-val td-minimo">${fmtPct(pctPeriodoMin)}</div>
@@ -317,7 +316,7 @@ document.getElementById("acumBanner").innerHTML=`
         <div class="pct-meta">${fmt(metaPropMeg)}</div>
       </div>
     </div>
-    <div class="acum-note" style="margin-top:8px;">Realizado no período: ${fmt(acumPeriodo)} (Jan–Ago fechados + Set semana 1–5, que já bateu a Master). A semana 6–12/09 ainda está em fechamento e não entra neste comparativo.</div>
+    <div class="acum-note" style="margin-top:8px;">Realizado no período: ${fmt(acumPeriodo)} (Jan–Ago fechados + Set semanas 1–5 e 6–12, sendo que a 1ª já bateu a Master). A semana 13–19/09 ainda está em fechamento e não entra neste comparativo.</div>
   </div>
   <div class="acum-sep"></div>
   <div class="acum-item">
@@ -397,8 +396,8 @@ quarters.forEach(q=>{
 
 // SCHEDULE — Setembro (mês ativo)
 const setembro = months.find(m=>m.name==="Setembro");
-// Semana "6 a 12" contém a data de hoje (11/09) e ainda está em fechamento (não é definitiva).
-setembro.weeks.forEach((w,i)=>{ w.closed = (w.real!==null) && w.label!=="6 a 12"; w.emFechamento = w.label==="6 a 12"; });
+// Semana "13 a 19" contém a data de hoje (18/09) e ainda está em fechamento (não é definitiva).
+setembro.weeks.forEach((w,i)=>{ w.closed = (w.real!==null) && w.label!=="13 a 19"; w.emFechamento = w.label==="13 a 19"; });
 const realSet = setembro.weeks.reduce((s,w)=>w.real!==null?s+w.real:s,0);
 const progMasPct = Math.min(100, realSet/setembro.mas*100);
 const progColor = realSet>=setembro.mas?"var(--master)":realSet>=setembro.min?"var(--minimo)":"var(--minimo)";
